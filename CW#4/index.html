@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Classwork #4</title>
+  </head>
+  <body>
+    <script>
+      //1. Напишите функцию, которая принимает массив в качестве аргумента. Используя slice (), извлеките информацию из массива аргументов и верните новый массив, содержащий элементы «warm» и «sunny».
+      let myArray = ["cold", "rainy", "warm", "sunny", "cool", "thunderstorms"];
+
+      function choseTwoElements(array) {
+        return array.slice(2, 4);
+      }
+
+      console.log(choseTwoElements(myArray));
+
+      //2. Напишите функцию подсчета градусов Фаренгейта при входящем параметре температуры в цельсиях.
+      // Алгоритм пересчета из градусов Цельсия в градусы Фаренгейта - это температура в градусах Цельсия, умноженная на 9/5 плюс 32.
+      function celsiusToFahrenheit(c) {
+        return (c * 9) / 5 + 32;
+      }
+
+      console.log(celsiusToFahrenheit(14));
+
+      //3. Напишите функцию которая бы переворачивала предоставленную строку
+      //Возможно, вам придется превратить строку в массив, прежде чем вы можете обратить его.
+      //Ваш результат должен быть строкой.
+      //"something"
+      let string = "something";
+
+      function reverseString(string) {
+        return string.split("").reverse().join("");
+      }
+
+      console.log(reverseString(string));
+
+      //4. Напишите функцию которая возвращает длину самого длинного слова в предложении.
+      //Ваш ответ должен быть числом.
+      //"The quick brown fox jumped over the lazy dog"
+      let text = "The quick brown fox jumped over the lazy dog";
+
+      function findLongestWord(string) {
+        let stringArray = string.split(" ");
+        let longestWord = "";
+        for (word in stringArray) {
+          if (stringArray[word].length > longestWord.length) {
+            longestWord = stringArray[word];
+          }
+        }
+        return longestWord;
+      }
+
+      console.log(findLongestWord(text));
+    </script>
+  </body>
+</html>

@@ -4,29 +4,26 @@
        Все аргументы для функции принять от пользователя. */
 
 function calculate() {
-  operand1 = +document.getElementById("operand1").value;
-  operand2 = +document.getElementById("operand2").value;
-  sign = document.getElementById("operator").value;
+  let operand1 = +document.getElementById("operand1").value;
+  let operand2 = +document.getElementById("operand2").value;
+  let sign = document.getElementById("operator").value;
+  let operators = ["+", "-", "*", "/"];
   let result;
+
   if (operand1.isNaN || operand2.isNaN) {
-    result = "Wrong operand. Operand only can be a number.";
-    return result;
+    return "Wrong operand. Operand only can be a number.";
+  } else if (!operators.includes(sign)) {
+    return "Wrong operator. Calculator only can take: +, -, * and /.";
   }
-  switch (sign) {
-    case "+":
-      result = operand1 + operand2;
-      break;
-    case "-":
-      result = operand1 - operand2;
-      break;
-    case "*":
-      result = operand1 * operand2;
-      break;
-    case "/":
-      result = operand1 / operand2;
-      break;
-    default:
-      result = "Wrong operator. Calculator only can take: +, -, * and /.";
+
+  if (sign == "+") {
+    result = operand1 + operand2;
+  } else if (sign == "-") {
+    result = operand1 - operand2;
+  } else if (sign == "*") {
+    result = operand1 * operand2;
+  } else if (sign == "/") {
+    result = operand1 / operand2;
   }
   return result;
 }

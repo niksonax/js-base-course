@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Classwork #5</title>
+  </head>
+  <body>
+    <script>
+      //1. Обрезать строку (первый аргумент), если она длиннее заданной максимальной длины строки (второй аргумент). Вернуть усеченную строку с ... окончанием.
+      function truncateString(str, num) {
+        if (str.length > num) {
+          return str.slice(0, num) + "...";
+        }
+        return str;
+      }
+
+      console.log(
+        truncateString("A-tisket a-tasket A green and yellow basket", 8)
+      );
+
+      //2. Создайте функцию, которая просматривает массив (первый аргумент) и возвращает первый элемент в массиве, который проходит проверку на истинность (второй аргумент). Если ни один элемент не проходит тест, вернуть undefined.
+
+      function findElement(arr, func) {
+        for (let item in arr) {
+          if (func(item)) {
+            return item;
+          }
+        }
+        return undefined;
+      }
+
+      console.log(
+        findElement([1, 2, 3, 4], function (num) {
+          return num % 2 === 0;
+        })
+      );
+
+      //3. Проверьте, классифицировано ли значение как логический примитив. Верните true или false.
+
+      function booWho(bool) {
+        if (typeof bool === "boolean") {
+          return true;
+        } else {
+          return false;
+        }
+      }
+
+      console.log(booWho(null));
+
+      /* 4. Напишите код, выполнив задание из каждого пункта отдельной строкой:
+            Создайте пустой объект user.
+            Добавьте свойство name со значением John.
+            Добавьте свойство surname со значением Smith.
+            Измените значение свойства name на Pete.
+            Удалите свойство name из объекта. */
+
+      let user = {};
+      user.name = "John";
+      user.surname = "Smith";
+      user.name = "Pete";
+      delete user.name;
+
+      console.dir(user);
+
+      // 5. Напишите функцию isEmpty(obj), которая возвращает true, если у объекта нет свойств, иначе false.
+
+      function isEmpty(obj) {
+        return Object.keys(obj).length === 0 ? true : false;
+      }
+
+      emptyObj = {};
+      console.log(isEmpty(emptyObj));
+
+      /* 6. Напишите функцию, которая принимает один аргумент - количество кофейных зерен.
+            По условию - из 5 кофейных зерен можно сделать 1 чашку кофе.
+            Если зерен на чашку кофе не хватает - попросите у пользователя еще.
+            Верните количество чашек с кофе, которые можно сделать из того кол-ва зерен, что у вас уже имеется.
+            Те зерна, которые остались должны быть учтены при следующей готовке
+
+            Например:
+            doCoffee(10)  return 2;  осталось зерен: 0
+            doCoffee(4)    попросить еще зерна (например, 3)  return 1, осталось зерен: 2
+            doCoffee(3)    return 1; */
+
+      var leftBeans = 0;
+      function doCoffee(beans) {
+        beans += leftBeans;
+        if (beans < 0) {
+          return "Error";
+        } else if (beans < 5 && beans >= 0) {
+          leftBeans = beans % 5;
+          return "Not enough beans, need " + (5 - beans) + " more";
+        } else {
+          leftBeans = beans % 5;
+          return (
+            "Here your cofee cups: " +
+            Math.floor(beans / 5) +
+            ". Beans left: " +
+            leftBeans
+          );
+        }
+      }
+
+      console.log(doCoffee(2));
+      console.log(doCoffee(2));
+      console.log(doCoffee(8));
+      console.log(doCoffee(7));
+    </script>
+  </body>
+</html>

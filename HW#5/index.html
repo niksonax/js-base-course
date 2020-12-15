@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Homework #5</title>
+    <style>
+      .container > * {
+        margin: 30px 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container" id="task3">
+      <h3>Worker:</h3>
+      <span>Name: <input type="text" id="firstName" /></span>
+      <span>Surname: <input type="text" id="secondName" /></span> <br />
+      <span>Age: <input type="number" id="age" /></span> <br />
+      <span>Occupation: <input type="text" id="occupation" /></span> <br />
+      <button id="addWorker">Add Worker</button>
+      <button id="showWorkers">Show all workers</button>
+      <button id="addSalary">Add Salary</button>
+      <br />
+      <span
+        >Sort workers by:
+        <select id="sortWorkersBy">
+          <option value="name">First name</option>
+          <option value="sName">Second name</option>
+          <option value="age">Age</option>
+          <option value="occupation">Occupation</option>
+          <option value="salary">Salary</option>
+        </select>
+      <button id="sortWorkers">Sort</button>
+      </span>
+      <br></br>
+      <span>Workers List:</span>
+      <div id="workersList"></div>
+    </div>
+    <!-- <script src="task1.js"></script> -->
+    <!-- <script src="task2.js"></script> -->
+    <!-- <script src="task3.js"></script> -->
+    <!-- <script src="task4.js"></script> -->
+    <script src="task5.js"></script>
+  </body>
+</html>

@@ -1,0 +1,124 @@
+<!-- Реализовать свой CSS generator как был выполнен на уроке, только для margin -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Generator</title>
+    <style>
+      .main-block {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      #block {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 200px;
+        height: 200px;
+        border: red;
+        background-color: green;
+        color: rgb(255, 255, 255);
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: x-large;
+        transition-property: background-color;
+        transition-duration: 2.5s;
+      }
+      #block:hover {
+        background-color: rgb(15, 223, 205);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main-block">
+      <p>
+        Top margin
+        <input
+          type="range"
+          id="top-margin"
+          min="0"
+          max="100"
+          value="0"
+          oninput="getValue()"
+        />
+        <span id="top-margin-value">0</span>
+      </p>
+      <p>
+        Left margin
+        <input
+          type="range"
+          id="left-margin"
+          min="0"
+          max="100"
+          value="0"
+          oninput="getValue()"
+        />
+        <span id="left-margin-value">0</span>
+      </p>
+      <p>
+        Bottom margin
+        <input
+          type="range"
+          id="bottom-margin"
+          min="0"
+          max="100"
+          value="0"
+          oninput="getValue()"
+        />
+        <span id="bottom-margin-value">0</span>
+      </p>
+      <p>
+        Right margin
+        <input
+          type="range"
+          id="right-margin"
+          min="0"
+          max="100"
+          value="0"
+          oninput="getValue()"
+        />
+        <span id="right-margin-value">0</span>
+      </p>
+      <br />
+      <div id="block"><strong>Move Me!</strong></div>
+      <p>Some text</p>
+    </div>
+
+    <script>
+      function getValue() {
+        // getting value of the corner
+        var topMargin = document.getElementById("top-margin").value;
+        var leftMargin = document.getElementById("left-margin").value;
+        var bottomMargin = document.getElementById("bottom-margin").value;
+        var rightMargin = document.getElementById("right-margin").value;
+
+        // getting values of the text fields
+        var topMarginText = document.getElementById("top-margin-value");
+        var leftMarginText = document.getElementById("left-margin-value");
+        var bottomMarginText = document.getElementById("bottom-margin-value");
+        var rightMarginText = document.getElementById("right-margin-value");
+
+        // getting our block
+        var block = document.getElementById("block");
+
+        //setting values from range to filed
+        topMarginText.innerHTML = topMargin;
+        leftMarginText.innerHTML = leftMargin;
+        bottomMarginText.innerHTML = bottomMargin;
+        rightMarginText.innerHTML = rightMargin;
+
+        block.style.margin =
+          topMargin +
+          "px " +
+          rightMargin +
+          "px " +
+          bottomMargin +
+          "px " +
+          leftMargin +
+          "px ";
+      }
+    </script>
+  </body>
+</html>
